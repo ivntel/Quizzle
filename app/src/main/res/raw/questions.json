@@ -1,0 +1,184 @@
+{
+  "questions": [
+    {
+      "type": "sports",
+      "difficulty": "easy",
+      "question": "What number did Michael Jordan wear for most of his career?",
+      "answer_1": "1",
+      "answer_2": "8",
+      "answer_3": "9",
+      "answer_4": "23",
+      "correct_answer": "23"
+    },
+    {
+      "type": "sports",
+      "difficulty": "easy",
+      "question": "How many championships did Kobe Bryant win?",
+      "answer_1": "5",
+      "answer_2": "3",
+      "answer_3": "4",
+      "answer_4": "6",
+      "correct_answer": "5"
+    },
+    {
+      "type": "sports",
+      "difficulty": "easy",
+      "question": "How many championships did Dirk Nowitzki win?",
+      "answer_1": "1",
+      "answer_2": "2",
+      "answer_3": "3",
+      "answer_4": "4",
+      "correct_answer": "1"
+    },
+    {
+      "type": "sports",
+      "difficulty": "easy",
+      "question": "How many championships did Hakeem Olajuwan win?",
+      "answer_1": "1",
+      "answer_2": "2",
+      "answer_3": "3",
+      "answer_4": "4",
+      "correct_answer": "2"
+    },
+    {
+      "type": "sports",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "sports",
+      "difficulty": "easy",
+      "question": "How many championships did Michael Jordan win?",
+      "answer_1": "2",
+      "answer_2": "3",
+      "answer_3": "4",
+      "answer_4": "6",
+      "correct_answer": "6"
+    },
+    {
+      "type": "music",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "music",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "music",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "music",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "music",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "music",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "tv",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "tv",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "tv",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "tv",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "tv",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    },
+    {
+      "type": "tv",
+      "difficulty": "easy",
+      "question": "How many championships did Shaquille O'neal win?",
+      "answer_1": "3",
+      "answer_2": "4",
+      "answer_3": "5",
+      "answer_4": "6",
+      "correct_answer": "4"
+    }
+  ]
+}
