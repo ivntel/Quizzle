@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.tman.quizzle.navigation.Navigation
 import com.tman.quizzle.ui.theme.QuizzleTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,12 +18,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             QuizzleTheme {
+                val viewModel: MainViewModel = hiltViewModel()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Navigation()
+                    Navigation(viewModel)
                 }
             }
         }

@@ -1,12 +1,32 @@
 package com.tman.quizzle.ui
 
-import com.tman.quizzle.domain.repository.QuestionsRepository
-import com.tman.quizzle.domain.model.Questions
+import androidx.lifecycle.viewModelScope
+import com.tman.quizzle.domain.AppDataStore
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val questionsRepository: QuestionsRepository) : BaseViewModel() {
+class MainViewModel @Inject constructor(private val appDataStore: AppDataStore) : BaseViewModel() {
+    var highScoresMap = hashMapOf<ScreenType, Int>()
 
-    fun getQuestions(): Questions? = questionsRepository.getQuestions()
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            appDataStore.getHighScore(ScreenType.SPORTS).collect {
+                highScoresMap[ScreenType.SPORTS] = it
+            }
+        }
+        viewModelScope.launch(Dispatchers.IO) {
+            appDataStore.getHighScore(ScreenType.MUSIC).collect {
+                highScoresMap[ScreenType.MUSIC] = it
+            }
+        }
+        viewModelScope.launch(Dispatchers.IO) {
+            appDataStore.getHighScore(ScreenType.TV).collect {
+                highScoresMap[ScreenType.TV] = it
+            }
+        }
+    }
 }

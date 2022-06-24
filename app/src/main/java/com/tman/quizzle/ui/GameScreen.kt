@@ -1,5 +1,6 @@
 package com.tman.quizzle.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -58,9 +59,13 @@ fun GameScreen(
         navController.popBackStack()
     }
 
+    BackHandler { viewModel.saveHighScore() }
+
     Column(
         modifier =
-        Modifier.fillMaxSize().background(color = Color.LightGray),
+        Modifier
+            .fillMaxSize()
+            .background(color = Color.LightGray),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Card(
@@ -72,7 +77,9 @@ fun GameScreen(
                 text = question?.question.orEmpty(),
                 color = Color.White,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth().padding(all = 8.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(all = 8.dp)
             )
         }
 

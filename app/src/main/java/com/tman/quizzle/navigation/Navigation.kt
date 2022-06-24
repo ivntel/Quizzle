@@ -9,9 +9,10 @@ import androidx.navigation.navArgument
 import com.tman.quizzle.ui.GameScreen
 import com.tman.quizzle.ui.HighScoreScreen
 import com.tman.quizzle.ui.LandingScreen
+import com.tman.quizzle.ui.MainViewModel
 
 @Composable
-fun Navigation() {
+fun Navigation(viewModel: MainViewModel) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.LandingScreen.route) {
         composable(route = Screen.LandingScreen.route) { LandingScreen(navController) }
@@ -27,6 +28,6 @@ fun Navigation() {
         ) { entry ->
             GameScreen(navController, gameType = entry.arguments?.getString("gameType").orEmpty())
         }
-        composable(route = Screen.HighScoreScreen.route) { HighScoreScreen(navController) }
+        composable(route = Screen.HighScoreScreen.route) { HighScoreScreen(viewModel.highScoresMap) }
     }
 }

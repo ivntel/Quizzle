@@ -7,19 +7,21 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 
 @Composable
-fun HighScoreScreen(navController: NavController, viewModel: HighScoreViewModel = hiltViewModel()) {
+fun HighScoreScreen(highScoresMap: HashMap<ScreenType, Int>, viewModel: HighScoreViewModel = hiltViewModel()) {
     val screenList by remember { mutableStateOf(viewModel.screenList) }
-    val scoresMap by remember { mutableStateOf(viewModel.highScoresMap) }
+    val scoresMap by remember { mutableStateOf(highScoresMap) }
 
     Column(
         modifier = Modifier

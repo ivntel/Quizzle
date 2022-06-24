@@ -4,9 +4,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
-import com.tman.quizzle.domain.repository.QuestionsRepository
-import com.tman.quizzle.domain.model.Question
 import com.tman.quizzle.domain.AppDataStore
+import com.tman.quizzle.domain.model.Question
+import com.tman.quizzle.domain.repository.QuestionsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -55,11 +55,9 @@ class GameViewModel @Inject constructor(
         ).shuffled() as ArrayList<String>
     }
 
-    fun saveHighScore() {
-        viewModelScope.launch(Dispatchers.IO) {
-            if (uiState.currentQuestionsIndex > highScore) {
-                appDataStore.saveHighScore(uiState.currentQuestionsIndex, screenType)
-            }
+    fun saveHighScore() = viewModelScope.launch(Dispatchers.IO) {
+        if (uiState.currentQuestionsIndex > highScore) {
+            appDataStore.saveHighScore(uiState.currentQuestionsIndex, screenType)
         }
     }
 }
