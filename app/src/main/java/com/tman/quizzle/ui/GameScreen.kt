@@ -51,6 +51,7 @@ fun GameScreen(
             return
         }
         showToast(mContext, "Correct")
+        viewModel.uiState.isButtonClicked = false
     }
 
     fun incorrectlyAnsweredQuestion() {
@@ -59,7 +60,10 @@ fun GameScreen(
         navController.popBackStack()
     }
 
-    BackHandler { viewModel.saveHighScore() }
+    BackHandler {
+        viewModel.saveHighScore()
+        navController.popBackStack()
+    }
 
     Column(
         modifier =
@@ -93,7 +97,8 @@ fun GameScreen(
                         option = it,
                         question?.correct_answer.orEmpty(),
                         { correctlyAnsweredQuestion() },
-                        { incorrectlyAnsweredQuestion() }
+                        { incorrectlyAnsweredQuestion() },
+                        viewModel
                     )
                 })
         }
@@ -113,7 +118,8 @@ fun QuestionListItem(
     option: String,
     correctAnswer: String,
     correctlyAnsweredQuestion: () -> Unit,
-    incorrectlyAnsweredQuestion: () -> Unit
+    incorrectlyAnsweredQuestion: () -> Unit,
+    viewModel: GameViewModel
 ) {
     var colorState by remember { mutableStateOf(Color(0xFF6200EE)) }
     val color by animateColorAsState(targetValue = colorState)
@@ -124,6 +130,8 @@ fun QuestionListItem(
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .fillMaxWidth()
             .clickable(onClick = {
+                if (viewModel.uiState.isButtonClicked) return@clickable
+                viewModel.uiState.isButtonClicked = true
                 if (option == correctAnswer) {
                     colorState = Color.Green
                     coroutineScope.launch {

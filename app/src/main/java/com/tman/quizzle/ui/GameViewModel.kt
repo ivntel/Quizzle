@@ -18,7 +18,7 @@ class GameViewModel @Inject constructor(
     private val questionsRepository: QuestionsRepository,
     private val appDataStore: AppDataStore,
 ) : BaseViewModel() {
-    var uiState by mutableStateOf(ExampleUiState())
+    var uiState by mutableStateOf(GameUiState())
         private set
 
     var highScore = 0
@@ -62,10 +62,11 @@ class GameViewModel @Inject constructor(
     }
 }
 
-data class ExampleUiState(
+data class GameUiState(
     var gameType: String = "",
     var currentQuestionsIndex: Int = 0,
     var questionsList: List<Question> = emptyList(),
     var currentQuestion: Question? = Question("", "", "", "", "", "", "", ""),
-    var currentQuestionOptions: ArrayList<String> = arrayListOf()
+    var currentQuestionOptions: ArrayList<String> = arrayListOf(),
+    var isButtonClicked: Boolean = false
 )
