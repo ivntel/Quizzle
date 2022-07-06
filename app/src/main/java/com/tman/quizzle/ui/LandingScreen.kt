@@ -13,10 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.tman.quizzle.R
 import com.tman.quizzle.navigation.Screen
 
 @Composable
@@ -24,6 +26,7 @@ fun LandingScreen(
     navController: NavController,
     viewModel: LandingViewModel = viewModel()
 ) {
+    val mContext = LocalContext.current
     val buttonList by remember {
         mutableStateOf(arrayListOf(
             ScreenType.MUSIC, ScreenType.TV, ScreenType.SPORTS, ScreenType.HIGHSCORE
@@ -35,7 +38,7 @@ fun LandingScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "PLEASE SELECT A CATEGORY",
+            text = mContext.resources.getString(R.string.landing_screen_title),
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         LazyColumn(

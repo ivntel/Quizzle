@@ -1,5 +1,6 @@
 package com.tman.quizzle.ui
 
+import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,14 +15,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.tman.quizzle.R
 
 @Composable
 fun HighScoreScreen(highScoresMap: HashMap<ScreenType, Int>, viewModel: HighScoreViewModel = hiltViewModel()) {
     val screenList by remember { mutableStateOf(viewModel.screenList) }
     val scoresMap by remember { mutableStateOf(highScoresMap) }
+    val mContext = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -29,7 +33,7 @@ fun HighScoreScreen(highScoresMap: HashMap<ScreenType, Int>, viewModel: HighScor
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "High Scores",
+            text = mContext.resources.getString(R.string.high_score_high_scores),
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         LazyColumn(
@@ -38,14 +42,14 @@ fun HighScoreScreen(highScoresMap: HashMap<ScreenType, Int>, viewModel: HighScor
             items(
                 items = screenList,
                 itemContent = {
-                    HighScoreListItem(screenType = it, scoresMap)
+                    HighScoreListItem(screenType = it, scoresMap, mContext)
                 })
         }
     }
 }
 
 @Composable
-fun HighScoreListItem(screenType: ScreenType, scoresMap: HashMap<ScreenType, Int>) {
+fun HighScoreListItem(screenType: ScreenType, scoresMap: HashMap<ScreenType, Int>, mContext: Context) {
     Card(
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -57,7 +61,7 @@ fun HighScoreListItem(screenType: ScreenType, scoresMap: HashMap<ScreenType, Int
         Row {
             Column {
                 Text(
-                    text = "Highest ${screenType.type} Score: ${scoresMap[screenType]}",
+                    text = mContext.resources.getString(R.string.high_score_highest_score, screenType.type, scoresMap[screenType].toString()),
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth()

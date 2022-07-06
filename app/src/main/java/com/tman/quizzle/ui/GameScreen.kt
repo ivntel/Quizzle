@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.tman.quizzle.R
 import com.tman.quizzle.utils.showToast
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -45,17 +46,18 @@ fun GameScreen(
         optionList = viewModel.uiState.currentQuestionOptions
         currentScore = viewModel.uiState.currentQuestionsIndex
         if (currentScore > 4) {
-            showToast(mContext, "You win")
+            showToast(mContext, mContext.resources.getString(R.string.game_screen_you_win))
             viewModel.saveHighScore()
             navController.popBackStack()
             return
         }
-        showToast(mContext, "Correct")
+        showToast(mContext, mContext.resources.getString(R.string.game_screen_correct))
         viewModel.uiState.isButtonClicked = false
     }
 
     fun incorrectlyAnsweredQuestion() {
-        showToast(mContext, "Wrong the correct answer is ${question?.correct_answer.orEmpty()}")
+        val correctAnswerMessage = mContext.resources.getString(R.string.game_screen_wrong, question?.correct_answer.orEmpty())
+        showToast(mContext, correctAnswerMessage)
         viewModel.saveHighScore()
         navController.popBackStack()
     }
@@ -103,7 +105,7 @@ fun GameScreen(
                 })
         }
         Text(
-            text = "Current Score: $currentScore",
+            text = mContext.resources.getString(R.string.game_screen_wrong, currentScore.toString()),
             textAlign = TextAlign.Start,
             modifier = Modifier
                 .fillMaxWidth()

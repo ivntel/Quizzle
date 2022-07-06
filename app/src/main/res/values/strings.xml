@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Quizzle</string>
+    <!--GameScreen-->
+    <string name="game_screen_correct">Correct</string>
+    <string name="game_screen_you_win">You win</string>
+    <string name="game_screen_wrong">Wrong the correct answer is %1$s</string>
+    <string name="game_screen_current_score">Current Score: %1$s</string>
+    <!--HighScoreScreen-->
+    <string name="high_score_high_scores">High Scores</string>
+    <string name="high_score_highest_score">Highest %1$s Score: %2$s</string>
+    <!--LandingScreen-->
+    <string name="landing_screen_title">PLEASE SELECT A CATEGORY</string>
 </resources>
